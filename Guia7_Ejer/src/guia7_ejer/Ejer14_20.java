@@ -228,6 +228,73 @@ public class Ejer14_20 {
     
     public static void ejer20(String[] args){
         Scanner read = new Scanner (System.in);
-        /*Mirar el EJERCICIO 6 De ejercicio 22 de PsEInt*/
+        int[][] matriz = new int [3][3];
+        llenarMatTec(matriz);
+        System.out.println("");
+        System.out.println("Esta es la matriz ingresada");
+        mostrarMat(matriz);
+        boolean mag = magico(matriz);
+        System.out.println("Analizando la matriz...");
+        if (mag) {
+            System.out.println("Felicidades!! El cuadrado es mágico");
+            
+        }else{
+            System.out.println("Lastima, El cuadrado no es mágico");
+        }
     }
+    
+    public static void llenarMatTec (int [][] matriz){
+        Scanner read = new Scanner (System.in);
+        System.out.println("A continuación llenaremos los datos de su matriz");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                do{
+                    System.out.println("Ingrese el valor para el lugar ["+i+","+j+"]");
+                    matriz [i][j] = read.nextInt();
+                    if (matriz [i][j]<1 || matriz [i][j]>9) {
+                        System.out.println("Valor inválido. Ingreselo nuevamente");
+                    }
+                }while (matriz [i][j]<1 || matriz [i][j]>9);
+              
+            }
+            
+        }
+    }
+    
+    public static boolean magico(int [][] matriz){
+        int sumDP = 0 ;int sumDS = 0 ;int sumFant = 0;int sumCant = 0;int sumF;int sumC;
+        boolean mag = true;
+        for (int i = 0; i < matriz.length; i++){
+            sumF = 0 ; sumC = 0;
+            for (int j = 0; j < matriz[0].length; j++){
+                sumF += matriz[i][j];
+                sumC += matriz[j][i];
+                if (i == j) {
+                    sumDP += matriz[j][i];
+                }
+                if (i + j == matriz.length - 1) {
+                    sumDS += matriz[j][i];
+                }
+            }
+            
+            if (i == 0) {
+                sumFant = sumF;
+                sumCant = sumC;
+            }else{
+                if (sumFant != sumF || sumC != sumCant || sumF != sumC) {
+                mag = false;
+                break;
+                }
+                    
+            }
+        }
+
+        if (sumFant != sumDP || sumFant != sumDS) {
+            mag = false;
+ 
+        }
+        return mag;
+    }
+ 
+    
 }
