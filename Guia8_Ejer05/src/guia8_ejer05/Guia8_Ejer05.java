@@ -3,26 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guia8_ejer01;
-import Insides.Libro;
+package guia8_ejer05;
+
 /**
  *
  * @author LINA RAMIREZ
  */
-public class Guia8_Ejer01 {
+public class Guia8_Ejer05 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Libro primerL = new Libro();
-        Libro segunL = new Libro(123, "La ridicula idea", "Rosa Montero", 90);
-        System.out.println(primerL.toString());
-        System.out.println(segunL.toString());
-        segunL.cargar();
-        System.out.println(segunL.toString());
-        
     }
     
 }
