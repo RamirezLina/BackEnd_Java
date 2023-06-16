@@ -12,17 +12,21 @@ package Anexos;
 public class Cuenta {
     private int numeroCuenta;
     private long DNI;
-    private int saldoActual;
+    private double saldoActual;
 
+    /* Constructores */
+    
     public Cuenta() {
     }
 
-    public Cuenta(int numeroCuenta, long DNI, int saldoActual) {
+    public Cuenta(int numeroCuenta, long DNI, double saldoActual) {
         this.numeroCuenta = numeroCuenta;
         this.DNI = DNI;
         this.saldoActual = saldoActual;
     }
 
+    /* Getter & Setter */
+    
     public int getNumeroCuenta() {
         return numeroCuenta;
     }
@@ -31,7 +35,7 @@ public class Cuenta {
         return DNI;
     }
 
-    public int getSaldoActual() {
+    public double getSaldoActual() {
         return saldoActual;
     }
 
@@ -43,8 +47,13 @@ public class Cuenta {
         this.DNI = DNI;
     }
 
-    public void setSaldoActual(int saldoActual) {
+    public void setSaldoActual(double saldoActual) {
         this.saldoActual = saldoActual;
+    }
+
+    @Override
+    public String toString() {
+        return "Cuenta{" + "numeroCuenta=" + numeroCuenta + ", DNI=" + DNI + ", saldoActual=" + saldoActual + '}';
     }
     
     
