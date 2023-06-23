@@ -22,14 +22,39 @@ public class personaServicios {
         int edad = read.nextInt();
         String sexo;
         do {            
-            System.out.println("Escriba el sexo");
-            sexo = read.nextLine();
-        } while (sexo.equalsIgnoreCase("H") || sexo.equalsIgnoreCase("M")|| sexo.equalsIgnoreCase("O"));
-        System.out.println("Escriba el pesp");
+            System.out.println("Escriba el sexo H: hombre; M:uner; O: otro");
+            sexo = read.next();
+        } while (!sexo.equalsIgnoreCase("H") & !sexo.equalsIgnoreCase("M")& !sexo.equalsIgnoreCase("O"));
+        System.out.println("Escriba el peso en kg");
         double peso = read.nextDouble();
-        System.out.println("Escriba la altura");
+        System.out.println("Escriba la altura en metros");
         double altura = read.nextDouble();
-        
+        read.nextLine();
         return new Persona(name, edad, sexo, peso, altura);
     }
+    
+    public int calcularIMC(Persona p){
+        int result = 0;
+        double imc = (p.getPeso()/(Math.pow(p.getAltura(),2)));
+        
+        if (imc < 20) {
+            result = -1;
+        }else if(imc <= 25 & imc >=20){
+            result = 0;
+        }else if(imc > 25){
+            result = 1;
+        }
+        return result;
+    }
+    
+    public boolean esMayorDeEdad(Persona p){
+        boolean mayorEdad = true;
+        
+        if (p.getEdad()< 18) {
+            mayorEdad = false;
+        }
+        return mayorEdad;
+    }
+    
+    
 }
