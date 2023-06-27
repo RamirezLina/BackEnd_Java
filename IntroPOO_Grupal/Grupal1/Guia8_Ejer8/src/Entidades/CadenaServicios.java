@@ -46,4 +46,61 @@ public class CadenaServicios {
         }
         return invert;
     }
+    
+    public int vecesRepetido (Cadena c, String l){
+        int veces = 0;
+        for (int i = 0; i < c.getLongFrase(); i++) {
+            String letra = c.getFrase().substring(i, i+1);
+            if (letra.equalsIgnoreCase(l)) {
+                veces += 1;
+            }
+        }
+        return veces;
+    }
+    
+    
+    public void compararLongitud (Cadena c, String f){
+        if (c.getLongFrase() == f.length()) {
+            System.out.println("Las frases tienen la misma longitud");
+            
+        }else if(c.getLongFrase() > f.length()){
+            System.out.println("La frase inicial tiene mayor longitud");
+        } else if(c.getLongFrase() < f.length()){
+            System.out.println("La frase inicial tiene menor longitud");
+        }
+    }
+    
+    public String unirFrases(Cadena c, String frase){
+        String unir = c.getFrase().concat(" ").concat(frase);
+        
+        return unir;
+             
+    }
+    
+    public String reemplazar(Cadena c, String carac){
+        String resultado = "";
+        for (int i = 0; i < c.getLongFrase(); i++) {
+            String letra = c.getFrase().substring(i, i+1);
+            if (letra.equalsIgnoreCase("a")) {
+                letra = carac;
+            }
+            resultado += letra;
+        }
+        
+        return resultado;
+    }
+    
+    public boolean contiene (Cadena c, String let){
+        boolean cont = false;
+        for (int i = 0; i < c.getLongFrase(); i++) {
+            String letra = c.getFrase().substring(i, i+1);
+            if (letra.equalsIgnoreCase(let)) {
+                cont = true;
+            }
+        }
+        return cont;
+    }
+    
+    
+    
 }
