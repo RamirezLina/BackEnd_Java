@@ -28,7 +28,7 @@ public class Guia8_Ejer10 {
         AS.mostrarArray(arrA);
         AS.llenarCopia(arrA, arrB);
         System.out.println("");
-        System.out.println("El arreglo A ordenadoes el siguiente");
+        System.out.println("El arreglo A ordenado es el siguiente");
         AS.mostrarArray(arrA);
         System.out.println("");
         System.out.println("El arreglo B es el siguiente");
