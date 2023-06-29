@@ -17,7 +17,7 @@ public class Guia8_Ejer13 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner read = new Scanner(System.in).useDelimiter("\n");
+        Scanner read = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
         CursoServ cs = new CursoServ();
         // TODO code application logic here
         String resp;
@@ -30,8 +30,15 @@ public class Guia8_Ejer13 {
         
         while (resp.equalsIgnoreCase("si")){
             Curso curso1 = cs.crearCurso();
+            System.out.println("Las características del curso son: ");
+           
             System.out.println(curso1);
+            System.out.println("");
+            System.out.println("Los alumnos insicritos al curso son:");
             cs.mostrarArray (curso1);
+            
+            System.out.println("");
+            System.out.println("La ganancia semanal es "+cs.calcularGananciaSemanal(curso1));
             break;
         }
         

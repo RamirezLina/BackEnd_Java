@@ -11,14 +11,14 @@ import java.util.Scanner;
  * @author LINA RAMIREZ
  */
 public class CursoServ {
-    Scanner read = new Scanner (System.in).useDelimiter("\n");
-    
+    Scanner read = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
+    Curso c = new Curso ();
     public String[] cargarAlumnos (){
         String [] alumnos = new String[5];
         for (int i = 0; i < alumnos.length; i++) {
             System.out.println("Escriba el nombre del alumno a registrar");
             System.out.println("Alumno "+(i+1));
-            alumnos[i]=read.nextLine();
+            alumnos[i]=read.next();
         }
         return alumnos;
     }
@@ -40,7 +40,7 @@ public class CursoServ {
         
         System.out.println("Escriba el precio por hora del curso");
         double precio = read.nextDouble();
-        read.next();
+        
         String [] alumnos = cargarAlumnos ();
         
         return  new Curso(nombreCurso, horasDia, diasSemana, turno, precio, alumnos);
@@ -49,9 +49,14 @@ public class CursoServ {
     public void mostrarArray (Curso c){
         System.out.print("[ ");
         for (String alumno : c.getAlumnos()) {
-            System.out.print(alumno + " ");
+            System.out.print(alumno + " | ");
         }
         System.out.println("]");
+    }
+    
+    public double calcularGananciaSemanal(Curso c){
+        double ganancia = c.getCantidadHorasPorDia()*c.getPrecioPorHora()*c.getAlumnos().length*c.getCantidadDiasPorSemana();
+        return ganancia;
     }
     
 }
