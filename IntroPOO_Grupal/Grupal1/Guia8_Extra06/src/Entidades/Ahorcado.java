@@ -17,18 +17,29 @@ public class Ahorcado {
     private String[] palabra;
     private int letrasEncontradas;
     private int jugadasMax;
+    private String[] letrasProbadas;
 
     public Ahorcado() {
     }
 
-    public Ahorcado(String[] palabra, int letrasEncontradas, int jugadasMax) {
+    public Ahorcado(String[] palabra, int letrasEncontradas, int jugadasMax, String[] letrasProbadas) {
         this.palabra = palabra;
         this.letrasEncontradas = letrasEncontradas;
         this.jugadasMax = jugadasMax;
+        this.letrasProbadas = letrasProbadas;
     }
-    
-    
 
+    public String[] getLetrasProbadas() {
+        return letrasProbadas;
+    }
+
+    public void setLetrasProbadas(String[] letrasProbadas) {
+        this.letrasProbadas = letrasProbadas;
+    }
+
+    
+    
+    
     public Scanner getRead() {
         return read;
     }

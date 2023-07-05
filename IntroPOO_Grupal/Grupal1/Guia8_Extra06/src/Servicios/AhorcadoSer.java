@@ -23,6 +23,8 @@ public class AhorcadoSer {
         System.out.println("Escriba la cantidad de jugadas máxima");
         j1.setJugadasMax(read.nextInt());
         j1.setLetrasEncontradas(0);
+        String [] letrasProbadas = new String[j1.getJugadasMax()];
+        j1.setLetrasProbadas(letrasProbadas);
         return j1;
     }
     
@@ -52,10 +54,7 @@ public class AhorcadoSer {
         j.setJugadasMax(j.getJugadasMax()-1);
         int pert = 0;
         
-               
-        for (int i = 0; i < 10; i++) {
-            
-        }
+        
         for (String l:  j.getPalabra()){
             
             if (l.equalsIgnoreCase(letra)) {
@@ -91,28 +90,45 @@ public class AhorcadoSer {
        
         System.out.println("");
         System.out.println("Empecemos...");
-        
+        int i = 0;
         do {
+            
+            boolean repetida = false;
             System.out.println("Escriba una letra");
             String letra = read.next();
-            longitud(juego1);
-            buscar(letra, juego1);
-            encontradas(juego1);
-            intentos(juego1);
-            System.out.println("----------------------------");
+            for (String letrasProbada : juego1.getLetrasProbadas()) {
+                if (letra.equalsIgnoreCase(letrasProbada)) {
+                    repetida = true;
+                }
+            }
+            if (!repetida) {
+                
+                longitud(juego1);
+                buscar(letra, juego1);
+                encontradas(juego1);
+                intentos(juego1);
+                
+                juego1.getLetrasProbadas()[i]=letra;
+                i += 1;
+
+                System.out.println("----------------------------");
+            }else{
+                System.out.println("Letra ya ingresada");
+            }
+            
         } while ((juego1.getPalabra().length != juego1.getLetrasEncontradas()) && (0!=juego1.getJugadasMax()));
         
         if (juego1.getPalabra().length== juego1.getLetrasEncontradas()) {
             System.out.println("Felicidades ha descubierto la palabra");
             System.out.println("La palabra es...");
             mostrarArray(juego1);
-        }
-        
-        if (0==juego1.getJugadasMax()) {
+        }else if (0==juego1.getJugadasMax()) {
             System.out.println("¡Qué lástima!, Se acabaron los intentos...");
             System.out.println("La palabra era");
             mostrarArray(juego1);
         }
+        
+        
         
     }
 }
