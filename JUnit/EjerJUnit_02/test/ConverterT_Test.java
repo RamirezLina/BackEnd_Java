@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import Entities.Calculadora;
+import Services.TemperatureConverter;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,15 +16,15 @@ import static org.junit.Assert.*;
  *
  * @author LINA RAMIREZ
  */
-public class CalculadoraTest {
+public class ConverterT_Test {
     
-    public CalculadoraTest() {
+    TemperatureConverter c;
+    public ConverterT_Test() {
     }
-    
-    Calculadora c;
     
     @BeforeClass
     public static void setUpClass() {
+        
     }
     
     @AfterClass
@@ -33,7 +33,7 @@ public class CalculadoraTest {
     
     @Before
     public void setUp() {
-        c = new Calculadora ();
+        c = new TemperatureConverter();
     }
     
     @After
@@ -41,11 +41,20 @@ public class CalculadoraTest {
     }
 
     @Test
-    public void calculoDescuento(){
-        
-        assertEquals(50,c.calcularDescuento(100, 50),0);
-        assertEquals(100,c.calcularDescuento(100, 0),0);
-        assertEquals(10,c.calcularDescuento(100, 90),0.1);
+    public void aCelsius(){
+        assertEquals(-173.15, c.Celsius_K(100),0.1);
+        assertEquals(37.7778, c.Celsius_F(100),0.1);
     }
     
+    @Test
+    public void aKelvin(){
+        assertEquals(373.15, c.Kelvin_C(100) ,0.001);
+        assertEquals(310.928, c.Kelvin_F(100),0.001);
+    }
+    
+    @Test
+    public void aFahren(){
+        assertEquals(-279.67,c.Fahren_K(100),0.05);
+        assertEquals(212,c.Fahren_C(100),0.05);
+    }
 }
