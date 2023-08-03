@@ -5,6 +5,8 @@
  */
 package guia9_ejer06;
 
+import Services.tiendaService;
+
 /**
  *
  * @author LINA RAMIREZ
@@ -16,6 +18,9 @@ public class Guia9_Ejer06 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        tiendaService ts = new tiendaService();
+        ts.menu();
+
     }
     
 }
