@@ -6,6 +6,7 @@
 package guia11_ejem;
 
 import Entities.Animal;
+import Entities.Caminante;
 import Entities.Gato;
 import Entities.Perro;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class Guia11_Ejem {
         for (Animal an : animales) {
             an.hacerRuido();
         }
+        
+        
     }
     
 }
