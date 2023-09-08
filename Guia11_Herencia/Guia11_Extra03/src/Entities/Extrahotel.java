@@ -5,6 +5,8 @@
  */
 package Entities;
 
+import java.util.Scanner;
+
 /**
  *
  * @author LINA RAMIREZ
@@ -14,6 +16,11 @@ public class Extrahotel extends Alojamiento{
     protected double area;
 
     public Extrahotel() {
+        super();
+        Scanner read= new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
+        System.out.println("Indique si el hotel es privado o no");
+        read.nextBoolean();
+        
     }
 
     public Extrahotel(boolean privado, double area, String nombre, String direccion, String localidad, String gerente) {
@@ -38,6 +45,10 @@ public class Extrahotel extends Alojamiento{
         this.area = area;
     }
     
+    @Override
+    public String toString() {
+        return "Alojamiento{" + "nombre=" + nombre + ", direccion=" + direccion + ", localidad=" + localidad + ", gerente=" + gerente + ", privado="+privado+'}';
+    }
     
     
 }

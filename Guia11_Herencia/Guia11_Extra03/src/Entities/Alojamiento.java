@@ -5,6 +5,8 @@
  */
 package Entities;
 
+import java.util.Scanner;
+
 /**
  *
  * @author LINA RAMIREZ
@@ -16,6 +18,9 @@ public class Alojamiento {
     protected String gerente;
 
     public Alojamiento() {
+        Scanner read= new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
+        System.out.println("Indique el nombre del alojamiento");
+        nombre = read.next();
     }
 
     public Alojamiento(String nombre, String direccion, String localidad, String gerente) {
@@ -56,6 +61,12 @@ public class Alojamiento {
     public void setGerente(String gerente) {
         this.gerente = gerente;
     }
+
+    @Override
+    public String toString() {
+        return "Alojamiento{" + "nombre=" + nombre + ", direccion=" + direccion + ", localidad=" + localidad + ", gerente=" + gerente + '}';
+    }
+    
     
     
     

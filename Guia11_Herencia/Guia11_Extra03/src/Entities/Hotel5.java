@@ -5,19 +5,29 @@
  */
 package Entities;
 
+import java.util.Scanner;
+
 /**
  *
  * @author LINA RAMIREZ
  */
-public class Hotel5 extends Hotel4{
+public class Hotel5 extends Hotel4 {
+
     protected int numSalonesConf;
     protected int numSuuites;
     protected int numLimosinas;
 
     public Hotel5() {
+        super();
+        do {
+            Scanner read = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
+            System.out.println("Indique el numero de limosinas del hotel");
+            numLimosinas = read.nextInt();
+        } while (numLimosinas<0);
+
     }
 
-    public Hotel5(int numSalonesConf, int numSuuites, int numLimosinas, char gimnasio, String restaurante, int capacidadRest, int numHabitaciones, int numCamas, int numPisos, double precioHab, String nombre, String direccion, String localidad, String gerente) {
+    public Hotel5(int numSalonesConf, int numSuuites, int numLimosinas, char gimnasio, String restaurante, int capacidadRest, int numHabitaciones, int numCamas, int numPisos, Double precioHab, String nombre, String direccion, String localidad, String gerente) {
         super(gimnasio, restaurante, capacidadRest, numHabitaciones, numCamas, numPisos, precioHab, nombre, direccion, localidad, gerente);
         this.numSalonesConf = numSalonesConf;
         this.numSuuites = numSuuites;
@@ -47,7 +57,19 @@ public class Hotel5 extends Hotel4{
     public void setNumLimosinas(int numLimosinas) {
         this.numLimosinas = numLimosinas;
     }
+
+    @Override
+    public Double precioHab() {
+        Double precio;
+
+        precio = 50d + (1 * getNumCamas()) + aggGim() + aggRest()+aggLim();
+
+        return precio;
+    }
     
-    
-    
+    public double aggLim(){
+        double agregado = 15*getNumLimosinas();
+        return agregado;
+    }
+
 }
