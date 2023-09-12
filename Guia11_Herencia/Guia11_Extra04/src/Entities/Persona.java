@@ -75,6 +75,10 @@ public class Persona {
         return "Persona{" + "nombre=" + nombre +", ID "+ID+", estadoCivil=" + estadoCivil + '}';
     }   
     
+    public void modificar(){
+        
+    }
+    
     public void cambiarEC(){
         Scanner read= new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
         String resp;
