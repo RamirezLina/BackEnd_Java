@@ -18,8 +18,23 @@ public class Extrahotel extends Alojamiento{
     public Extrahotel() {
         super();
         Scanner read= new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
-        System.out.println("Indique si el hotel es privado o no");
-        read.nextBoolean();
+        
+        String resp;
+        do {            
+            System.out.println("Indique si el hotel es privado o no");
+            resp = read.next();
+            switch (resp.toUpperCase()) {
+                case "S":
+                    privado = true;
+                    break;
+
+                case "N":
+                    privado = false;
+                    break;
+                default:
+                    resp = "R";
+            }
+        } while (resp.equalsIgnoreCase("R") );
         
     }
 
@@ -47,7 +62,7 @@ public class Extrahotel extends Alojamiento{
     
     @Override
     public String toString() {
-        return "Alojamiento{" + "nombre=" + nombre + ", direccion=" + direccion + ", localidad=" + localidad + ", gerente=" + gerente + ", privado="+privado+'}';
+        return "Alojamiento{" + "nombre=" + nombre +", privado="+privado+'}';
     }
     
     
