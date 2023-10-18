@@ -38,7 +38,7 @@ public class Guia12_Ejer03 {
             System.out.println("El valor ingresado no es un numero entero");
 
         }catch(ArithmeticException e){
-            System.out.println("No puedes divider entre '0'");
+            System.out.println("No puedes dividir entre '0'");
         }
     }
 
