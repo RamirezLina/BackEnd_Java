@@ -7,6 +7,7 @@ package com.noticas.egg.entidades;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.Getter;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -14,6 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author LINA RAMIREZ
  */
 @Entity
+@Getter
 public class Noticia {
     
     @Id
@@ -28,17 +30,7 @@ public class Noticia {
         alta = true;
     }
     
-    public String getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getCuerpo() {
-        return cuerpo;
-    }
+    
 
     public void setId(String id) {
         this.id = id;

@@ -22,4 +22,13 @@ public class PortalControlador { //localhost:8080/
      return "index.html";  
     }
     
+    @GetMapping("/registrar")
+    public String Registrar(){
+        return "registro.html";
+    }
+    
+    @GetMapping("/login")
+    public String login(){
+        return "login.html";
+    }
 }
