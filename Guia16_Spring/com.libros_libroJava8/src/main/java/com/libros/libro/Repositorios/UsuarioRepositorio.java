@@ -6,6 +6,8 @@ package com.libros.libro.Repositorios;
 
 import com.libros.libro.Entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -17,8 +19,8 @@ public interface UsuarioRepositorio extends JpaRepository <Usuario, String> {
     
 //    Retonrnar un usuario por su email
     
-//    @Query("SELECT u FROM usuario u WHERE u.email = :email")
-//    public Usuario findByemail(@Parama("email") String email);
+    @Query("SELECT u FROM Usuario u WHERE u.email = :email")
+    public Usuario buscarPorEmail(@Param("email")String email);
     
-    public abstract Usuario findByEmail(String email);
+
 }

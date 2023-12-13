@@ -5,16 +5,15 @@
 package com.libros.libro.Entities;
 
 import com.libros.libro.enumeraciones.Rol;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import java.util.List;
-import javax.management.ConstructorParameters;
+
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
@@ -36,6 +35,8 @@ public class Usuario {
     
     @Enumerated(EnumType.STRING)
     private Rol rol;
+    
+    
     
     
     

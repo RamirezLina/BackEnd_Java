@@ -4,7 +4,7 @@
  */
 package com.libros.libro.Repositorios;
 
-import com.libros.libro.Entities.Usuario;
+import com.libros.libro.Entities.Editorial;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,12 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author LINA RAMIREZ
  */
 @Repository
-public interface UsuarioRepositorio extends JpaRepository <Usuario, String> {
+public interface EditorialRepositorio extends JpaRepository<Editorial, String>{
     
-//    Retonrnar un usuario por su email
-    
-//    @Query("SELECT u FROM usuario u WHERE u.email = :email")
-//    public Usuario findByemail(@Parama("email") String email);
-    
-    public abstract Usuario findByEmail(String email);
 }
