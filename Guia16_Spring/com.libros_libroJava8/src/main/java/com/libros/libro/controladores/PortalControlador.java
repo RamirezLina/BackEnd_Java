@@ -4,8 +4,10 @@
  */
 package com.libros.libro.controladores;
 
+import com.libros.libro.Entities.Usuario;
 import com.libros.libro.excepciones.MiException;
 import com.libros.libro.services.UsuarioServicio;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -65,7 +67,14 @@ public class PortalControlador { //localhost:8080/
     
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @GetMapping("/inicio")
-    public String inicio(){
+    public String inicio(HttpSession session){
+        
+        Usuario logueado = (Usuario)session.getAttribute("usuariosession");
+        
+        if (logueado.getRol().toString().equals("ADMIN")) {
+            return "redirect:/admin/dashboard";
+            
+        }
         return "inicio.html";
     }
 }
